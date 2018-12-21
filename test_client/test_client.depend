@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1544965302 source:c:\users\andre\desktop\test_client\main.cpp
+	"functii_socket.cpp"
+	<cstring>
+
+1544962796 c:\users\andre\desktop\test_client\functii_socket.cpp
+	<winsock2.h>
+	<windows.h>
+	<ws2tcpip.h>
+	<iostream>
+
