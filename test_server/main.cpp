@@ -22,18 +22,39 @@ int main(){
 	acceptClient(serverSocket, client2);
 	cout<<"Client2 accepted!"<<endl;
 
-	char inp[512];
-	inp[511] = '\0';
-	int result_send1, result_recv1;
-	int result_send2, result_recv2;
-	int clientNo=0;
+	char inp1[512];
+	char inp2[512];
+	inp1[511] = '\0';
+	inp2[511] = '\0';
+	int result_send11, result_send12, result_recv1;
+	int result_send21, result_send22, result_recv2;
+
 	do{
-		result_recv1 = recv(client1, inp, 512, 0);
-		inp[result_recv1] = '\0';
-		result_send1 = send(client1, inp, (int)strlen(inp), 0);
-		cout<<"Client "<<clientNo%2<<" :"<<inp<<endl;
-		inp[511] = '\0';
-	}while(strcmp(inp, strdup("exit")) != 0 &&
-            result_send1 > 0 && result_recv1 > 0);
+		result_recv1 = recv(client1, inp1, 512, 0);
+		result_recv2 = recv(client2, inp2, 512, 0);
+
+		inp1[result_recv1] = '\0';
+		inp2[result_recv2] = '\0';
+
+		//trimit ce am primit fie de la client1 /client 2 catre amandoi
+		//trimit catre client 1 ce am primit de la amandoi
+		result_send11 = send(client1, inp1, (int)strlen(inp1), 0);
+		result_send12 = send(client1, inp2, (int)strlen(inp2), 0);
+
+		//trimit catre client 2 ce am primit de la amandoi
+		result_send21 = send(client2, inp1, (int)strlen(inp1), 0);
+		result_send22 = send(client2, inp2, (int)strlen(inp2), 0);
+
+		cout<<"Client1:"<<inp1<<endl;
+		cout<<"Client2:"<<inp2<<endl;
+		cout<<"\n";
+		inp1[511] = '\0';
+		inp2[511] = '\0';
+
+
+	}while(strcmp(inp1, strdup("exit")) != 0 &&
+            strcmp(inp2, strdup("exit")) != 0 &&
+            result_send11 > 0 && result_send12 > 0 && result_recv1 > 0 &&
+            result_send21 > 0 && result_send22 > 0 && result_recv2 > 0);
 	return 0;
 }

@@ -6,8 +6,6 @@
 #include <iostream>
 using namespace std;
 
-
-
 void initSockLibrary(){
 	WSADATA wsaData;
 	WSAStartup(MAKEWORD(2,2), &wsaData);

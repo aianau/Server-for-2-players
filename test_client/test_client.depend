@@ -9,3 +9,19 @@
 	<ws2tcpip.h>
 	<iostream>
 
+1545419660 source:c:\users\andre\desktop\server-for-2-players\test_client\main.cpp
+	"functii_socket.cpp"
+	<cstring>
+
+1545419805 c:\users\andre\desktop\server-for-2-players\test_client\functii_socket.cpp
+	<winsock2.h>
+	<windows.h>
+	<ws2tcpip.h>
+	<iostream>
+
+1545419805 source:c:\users\andre\desktop\server-for-2-players\test_client\functii_socket.cpp
+	<winsock2.h>
+	<windows.h>
+	<ws2tcpip.h>
+	<iostream>
+
